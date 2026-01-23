@@ -16,6 +16,7 @@
       <nav class="nav">
         <a class="logo" href="#home">Swachandrika Rudra</a>
         <div class="nav-actions">
+          <a href="#dashboard">Dashboard</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
           <a href="#skills">Skills</a>
@@ -99,6 +100,98 @@
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="dashboard" class="section">
+        <div class="section-header">
+          <h2>Insights Dashboard</h2>
+          <p>A playful snapshot of how I translate data into decisions.</p>
+        </div>
+        <div class="dash-grid">
+          <article class="dash-card">
+            <div class="dash-header">
+              <h3>Experiment Impact</h3>
+              <span class="dash-kpi">+18.4% lift</span>
+            </div>
+            <p class="dash-sub">Conversion rate by cohort</p>
+            <svg viewBox="0 0 320 120" class="dash-chart" aria-hidden="true">
+              <polyline
+                points="10,90 70,70 130,78 190,40 250,45 310,18"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+              />
+              <circle cx="70" cy="70" r="4" fill="currentColor" />
+              <circle cx="190" cy="40" r="4" fill="currentColor" />
+              <circle cx="310" cy="18" r="4" fill="currentColor" />
+            </svg>
+            <p class="dash-note">
+              Winners identified via sequential testing with guardrail metrics.
+            </p>
+          </article>
+
+          <article class="dash-card">
+            <div class="dash-header">
+              <h3>Pipeline Health</h3>
+              <span class="dash-kpi">99.2% SLA</span>
+            </div>
+            <p class="dash-sub">Daily job success rate</p>
+            <svg viewBox="0 0 320 120" class="dash-chart" aria-hidden="true">
+              <rect x="10" y="70" width="30" height="40" rx="6" />
+              <rect x="60" y="55" width="30" height="55" rx="6" />
+              <rect x="110" y="40" width="30" height="70" rx="6" />
+              <rect x="160" y="45" width="30" height="65" rx="6" />
+              <rect x="210" y="30" width="30" height="80" rx="6" />
+              <rect x="260" y="20" width="30" height="90" rx="6" />
+            </svg>
+            <p class="dash-note">
+              Automated alerts reduced incident response by 42%.
+            </p>
+          </article>
+
+          <article class="dash-card">
+            <div class="dash-header">
+              <h3>Clinical Insights</h3>
+              <span class="dash-kpi">-32% time</span>
+            </div>
+            <p class="dash-sub">Chart review time</p>
+            <svg viewBox="0 0 320 120" class="dash-chart" aria-hidden="true">
+              <path
+                d="M10,95 C50,20 110,80 160,55 C210,28 260,70 310,30"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+              />
+              <path
+                d="M10,95 C50,20 110,80 160,55 C210,28 260,70 310,30 L310,110 L10,110 Z"
+                fill="currentColor"
+                opacity="0.08"
+              />
+            </svg>
+            <p class="dash-note">
+              Feature engineering surfaced anomalies earlier in the workflow.
+            </p>
+          </article>
+
+          <article class="dash-card">
+            <div class="dash-header">
+              <h3>Model Scorecard</h3>
+              <span class="dash-kpi">82.9 AUC</span>
+            </div>
+            <p class="dash-sub">Precision by threshold</p>
+            <svg viewBox="0 0 320 120" class="dash-chart" aria-hidden="true">
+              <circle cx="70" cy="60" r="36" />
+              <circle cx="70" cy="60" r="28" fill="var(--bg)" />
+              <circle cx="170" cy="60" r="36" />
+              <circle cx="170" cy="60" r="28" fill="var(--bg)" />
+              <circle cx="270" cy="60" r="36" />
+              <circle cx="270" cy="60" r="28" fill="var(--bg)" />
+            </svg>
+            <p class="dash-note">
+              Balanced performance across recall and precision targets.
+            </p>
+          </article>
         </div>
       </section>
 
