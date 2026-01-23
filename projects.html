@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects | Swachandrika Rudra</title>
+    <meta
+      name="description"
+      content="Interactive projects by Swachandrika Rudra showcasing applied data science."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="logo" href="index.html">Swachandrika Rudra</a>
+        <div class="nav-actions">
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#contact">Contact</a>
+          <a class="button ghost" href="index.html">Back to Home</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section project-hero">
+        <div>
+          <p class="eyebrow">Projects</p>
+          <h1>Interactive data science products</h1>
+          <p class="lede">
+            Each project is designed to feel like a real product — clear
+            hypotheses, interactive controls, and measurable outcomes.
+          </p>
+        </div>
+      </section>
+
+      <section class="section project-feature">
+        <div class="section-header">
+          <h2>Outlier Hunt: Lab Result QA</h2>
+          <p>
+            Click suspicious points to flag anomalies. Learn how precision and
+            recall change as you tune detection sensitivity.
+          </p>
+        </div>
+
+        <div class="hunt-grid">
+          <div class="hunt-card">
+            <h3>Try It</h3>
+            <p class="hunt-sub">
+              You are reviewing lab results before they hit the dashboard. Find
+              the anomalies hidden in the scatter.
+            </p>
+            <div class="hunt-stats">
+              <span>Selected: <strong id="selectedCount">0</strong></span>
+              <span>Correct: <strong id="foundCount">0</strong></span>
+              <span>Total Anomalies: <strong id="totalAnomalies">6</strong></span>
+            </div>
+            <div class="hunt-actions">
+              <button class="button primary" id="scoreBtn" type="button">
+                Score
+              </button>
+              <button class="button ghost" id="revealBtn" type="button">
+                Reveal
+              </button>
+              <button class="button ghost" id="resetBtn" type="button">
+                Reset
+              </button>
+            </div>
+            <div class="hunt-results" id="huntResults">
+              <p>
+                Precision and recall will appear here after you score your picks.
+              </p>
+            </div>
+          </div>
+
+          <div class="hunt-card">
+            <svg
+              id="huntPlot"
+              class="hunt-plot"
+              viewBox="0 0 420 280"
+              role="img"
+              aria-label="Scatter plot of lab results"
+            ></svg>
+            <div class="hunt-legend">
+              <span class="legend-dot"></span> Normal
+              <span class="legend-dot anomaly"></span> Anomaly (revealed)
+              <span class="legend-dot selected"></span> Your pick
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Additional Projects</h2>
+          <p>Focused builds spanning NLP, bioinformatics, and data platforms.</p>
+        </div>
+        <div class="simple-list">
+          <article class="simple-item hover-expand">
+            <h3>Golgi - A Healthcare Search Engine</h3>
+            <p class="card-meta">Aug 2025</p>
+            <p class="card-summary">
+              LLM-powered healthcare search across 50+ trusted sources.
+            </p>
+            <ul>
+              <li>Query expansion, BM25 re-ranking, and confidence scoring.</li>
+              <li>Streamlit app with analytics, summaries, and export.</li>
+              <li>40% faster retrieval in test cases.</li>
+            </ul>
+          </article>
+
+          <article class="simple-item hover-expand">
+            <h3>Generative AI for Small Molecule Discovery</h3>
+            <p class="card-meta">Dec 2024</p>
+            <p class="card-summary">
+              Feedback-GAN pipeline for de novo drug discovery.
+            </p>
+            <ul>
+              <li>Autoencoder latent space + Wasserstein GAN.</li>
+              <li>Validated with RDKit for drug-likeness.</li>
+              <li>80% validity, 75% novelty, QED = 0.62.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Swachandrika Rudra · Built for GitHub Pages</p>
+    </footer>
+
+    <script>
+      const plot = document.getElementById("huntPlot");
+      const selectedCount = document.getElementById("selectedCount");
+      const foundCount = document.getElementById("foundCount");
+      const totalAnomalies = document.getElementById("totalAnomalies");
+      const scoreBtn = document.getElementById("scoreBtn");
+      const revealBtn = document.getElementById("revealBtn");
+      const resetBtn = document.getElementById("resetBtn");
+      const huntResults = document.getElementById("huntResults");
+
+      const data = [
+        { x: 12, y: 18 }, { x: 18, y: 30 }, { x: 22, y: 42 },
+        { x: 28, y: 55 }, { x: 32, y: 35 }, { x: 35, y: 62 },
+        { x: 38, y: 48 }, { x: 42, y: 58 }, { x: 45, y: 66 },
+        { x: 48, y: 52 }, { x: 52, y: 40 }, { x: 55, y: 60 },
+        { x: 60, y: 50 }, { x: 62, y: 62 }, { x: 66, y: 44 },
+        { x: 70, y: 56 }, { x: 74, y: 46 }, { x: 78, y: 58 },
+        { x: 82, y: 50 }, { x: 86, y: 42 }, { x: 90, y: 55 },
+        { x: 14, y: 65 }, { x: 24, y: 28 }, { x: 36, y: 30 },
+        { x: 58, y: 72 }, { x: 64, y: 30 }
+      ];
+      const anomalies = [
+        { x: 5, y: 90 }, { x: 95, y: 12 }, { x: 88, y: 92 },
+        { x: 8, y: 12 }, { x: 92, y: 62 }, { x: 40, y: 95 }
+      ];
+
+      const points = [
+        ...data.map((p) => ({ ...p, outlier: false })),
+        ...anomalies.map((p) => ({ ...p, outlier: true }))
+      ];
+
+      const selected = new Set();
+      totalAnomalies.textContent = anomalies.length;
+
+      const toSvg = (x, y) => {
+        const padding = 24;
+        const width = 420 - padding * 2;
+        const height = 280 - padding * 2;
+        return {
+          cx: padding + (x / 100) * width,
+          cy: padding + (1 - y / 100) * height
+        };
+      };
+
+      const render = () => {
+        plot.innerHTML = "";
+        const axis = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        axis.setAttribute("x", "18");
+        axis.setAttribute("y", "18");
+        axis.setAttribute("width", "384");
+        axis.setAttribute("height", "244");
+        axis.setAttribute("rx", "14");
+        axis.setAttribute("class", "hunt-frame");
+        plot.appendChild(axis);
+
+        points.forEach((point, index) => {
+          const { cx, cy } = toSvg(point.x, point.y);
+          const circle = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "circle"
+          );
+          circle.setAttribute("cx", cx);
+          circle.setAttribute("cy", cy);
+          circle.setAttribute("r", "7");
+          circle.setAttribute("class", "hunt-point");
+          circle.dataset.index = index;
+          if (selected.has(index)) {
+            circle.classList.add("is-selected");
+          }
+          if (plot.classList.contains("reveal") && point.outlier) {
+            circle.classList.add("is-outlier");
+          }
+          circle.addEventListener("click", () => {
+            if (selected.has(index)) {
+              selected.delete(index);
+            } else {
+              selected.add(index);
+            }
+            updateCounts();
+            render();
+          });
+          plot.appendChild(circle);
+        });
+      };
+
+      const updateCounts = () => {
+        selectedCount.textContent = selected.size;
+        let correct = 0;
+        selected.forEach((index) => {
+          if (points[index].outlier) {
+            correct += 1;
+          }
+        });
+        foundCount.textContent = correct;
+      };
+
+      const score = () => {
+        let tp = 0;
+        let fp = 0;
+        let fn = 0;
+        points.forEach((point, index) => {
+          const picked = selected.has(index);
+          if (picked && point.outlier) tp += 1;
+          if (picked && !point.outlier) fp += 1;
+          if (!picked && point.outlier) fn += 1;
+        });
+        const precision = tp / Math.max(1, tp + fp);
+        const recall = tp / Math.max(1, tp + fn);
+        const f1 =
+          (2 * precision * recall) / Math.max(0.001, precision + recall);
+
+        huntResults.innerHTML = `
+          <h4>Results</h4>
+          <p>Precision: ${(precision * 100).toFixed(0)}%</p>
+          <p>Recall: ${(recall * 100).toFixed(0)}%</p>
+          <p>F1 Score: ${(f1 * 100).toFixed(0)}%</p>
+          <p class="hunt-tip">Tip: catch more outliers without over-flagging normals.</p>
+        `;
+      };
+
+      scoreBtn.addEventListener("click", score);
+      revealBtn.addEventListener("click", () => {
+        plot.classList.add("reveal");
+        render();
+      });
+      resetBtn.addEventListener("click", () => {
+        selected.clear();
+        plot.classList.remove("reveal");
+        huntResults.innerHTML =
+          "<p>Precision and recall will appear here after you score your picks.</p>";
+        updateCounts();
+        render();
+      });
+
+      updateCounts();
+      render();
+    </script>
+  </body>
+</html>
