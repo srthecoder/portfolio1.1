@@ -207,6 +207,94 @@ img {
   margin-bottom: 24px;
 }
 
+.timeline {
+  display: grid;
+  gap: 20px;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  margin-top: 6px;
+  z-index: 1;
+}
+
+.timeline-dot.is-active {
+  background: #16a34a;
+  border-color: #16a34a;
+}
+
+.timeline-content {
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow);
+  padding: 20px 22px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.timeline-date {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.timeline-summary {
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+.timeline-content ul {
+  margin-top: 14px;
+  padding-left: 20px;
+  color: var(--muted);
+  display: grid;
+  gap: 10px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.timeline-item:hover .timeline-content,
+.timeline-item:focus-within .timeline-content {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.timeline-item:hover ul,
+.timeline-item:focus-within ul {
+  max-height: 200px;
+  opacity: 1;
+}
+
 .hover-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -304,6 +392,38 @@ img {
   box-shadow: var(--shadow);
   display: grid;
   gap: 12px;
+}
+
+.card-summary {
+  color: var(--muted);
+}
+
+.hover-expand {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.hover-expand ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.hover-expand:hover,
+.hover-expand:focus-within {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.hover-expand:hover ul,
+.hover-expand:focus-within ul {
+  max-height: 220px;
+  opacity: 1;
 }
 
 .card-meta {
