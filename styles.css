@@ -198,6 +198,37 @@ img {
   color: var(--muted);
 }
 
+.section-split {
+  display: grid;
+  grid-template-columns: minmax(140px, 180px) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+
+.section-title h2 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  font-weight: 700;
+}
+
+.section-body {
+  display: grid;
+  gap: 20px;
+}
+
+.about-block {
+  display: grid;
+  gap: 8px;
+}
+
+.about-block h3 {
+  font-size: 1.1rem;
+}
+
+.about-block p {
+  color: var(--muted);
+  max-width: 640px;
+}
+
 .entry {
   padding: 24px;
   border-radius: 20px;
@@ -216,10 +247,10 @@ img {
 .timeline::before {
   content: "";
   position: absolute;
-  left: 14px;
-  top: 10px;
-  bottom: 10px;
-  width: 2px;
+  left: 7px;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
   background: var(--border);
 }
 
@@ -231,12 +262,12 @@ img {
 }
 
 .timeline-dot {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
   border-radius: 999px;
-  border: 2px solid var(--border);
+  border: 1px solid var(--border);
   background: var(--bg);
-  margin-top: 6px;
+  margin-top: 4px;
   z-index: 1;
 }
 
@@ -246,12 +277,8 @@ img {
 }
 
 .timeline-content {
-  border-radius: 18px;
-  border: 1px solid var(--border);
-  background: var(--bg-elevated);
-  box-shadow: var(--shadow);
-  padding: 20px 22px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  padding: 0 0 4px;
+  transition: color 0.2s ease;
 }
 
 .timeline-header {
@@ -281,12 +308,6 @@ img {
   opacity: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, opacity 0.3s ease;
-}
-
-.timeline-item:hover .timeline-content,
-.timeline-item:focus-within .timeline-content {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
 }
 
 .timeline-item:hover ul,
@@ -399,7 +420,7 @@ img {
 }
 
 .hover-expand {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: color 0.2s ease;
   cursor: pointer;
 }
 
@@ -414,16 +435,20 @@ img {
   transition: max-height 0.3s ease, opacity 0.3s ease;
 }
 
-.hover-expand:hover,
-.hover-expand:focus-within {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
-}
-
 .hover-expand:hover ul,
 .hover-expand:focus-within ul {
   max-height: 220px;
   opacity: 1;
+}
+
+.simple-list {
+  display: grid;
+  gap: 22px;
+}
+
+.simple-item {
+  display: grid;
+  gap: 6px;
 }
 
 .card-meta {
@@ -485,6 +510,11 @@ img {
 @media (max-width: 900px) {
   .hero {
     grid-template-columns: 1fr;
+  }
+
+  .section-split {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 }
 
