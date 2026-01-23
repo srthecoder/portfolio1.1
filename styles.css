@@ -207,6 +207,57 @@ img {
   margin-bottom: 24px;
 }
 
+.hover-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.hover-card {
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow: var(--shadow);
+  padding: 22px;
+  display: grid;
+  gap: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.hover-card-header {
+  display: grid;
+  gap: 4px;
+}
+
+.hover-card-header span {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.hover-card ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  color: var(--muted);
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.hover-card:hover,
+.hover-card:focus-within {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.hover-card:hover ul,
+.hover-card:focus-within ul {
+  max-height: 240px;
+  opacity: 1;
+}
+
 .entry-header {
   display: flex;
   justify-content: space-between;
