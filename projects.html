@@ -102,23 +102,23 @@
           <div class="whack-summary-grid">
             <div class="summary-card">
               <p>Variant A Avg Hits</p>
-              <h3 id="avgHitsA">8</h3>
-              <span>Control: calmer pace</span>
+              <h3 id="avgHitsA">--</h3>
+              <span id="sessionsA">Sessions: 0</span>
             </div>
             <div class="summary-card">
               <p>Variant B Avg Hits</p>
-              <h3 id="avgHitsB">11</h3>
-              <span>Treatment: faster pace</span>
+              <h3 id="avgHitsB">--</h3>
+              <span id="sessionsB">Sessions: 0</span>
             </div>
             <div class="summary-card">
               <p>Accuracy Delta</p>
-              <h3 id="accDelta">-6%</h3>
-              <span>Speed can reduce precision</span>
+              <h3 id="accDelta">--</h3>
+              <span>Higher is better</span>
             </div>
             <div class="summary-card">
               <p>Recommendation</p>
-              <h3 id="recommendation">Ship B with tuning</h3>
-              <span>Balance engagement + accuracy</span>
+              <h3 id="recommendation">Play to populate</h3>
+              <span id="liveNote">Live updates on new sessions</span>
             </div>
           </div>
         </div>
@@ -163,7 +163,16 @@
       <p>© 2026 Swachandrika Rudra · Built for GitHub Pages</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
+      const SUPABASE_URL = "https://bdajmvfjltcbegdmktnu.supabase.co";
+      const SUPABASE_ANON_KEY = "sb_publishable_YRNDvYxYNXwClAiB199GUw_XuCh-3iw";
+      const supabaseReady =
+        SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase;
+      const supabaseClient = supabaseReady
+        ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+        : null;
+
       const variant = Math.random() < 0.5 ? "A" : "B";
       const variantLabel = document.getElementById("variantLabel");
       const variantSpeed = document.getElementById("variantSpeed");
@@ -180,6 +189,9 @@
       const avgHitsB = document.getElementById("avgHitsB");
       const accDelta = document.getElementById("accDelta");
       const recommendation = document.getElementById("recommendation");
+      const sessionsA = document.getElementById("sessionsA");
+      const sessionsB = document.getElementById("sessionsB");
+      const liveNote = document.getElementById("liveNote");
 
       const config = {
         A: { grid: 3, speed: 900, size: 72 },
@@ -242,20 +254,75 @@
         spawn = null;
         gameNote.textContent =
           "Session complete. Compare your results with the experiment summary.";
-        updateSummary();
+        recordSession().finally(fetchAggregates);
       };
 
       const updateSummary = () => {
-        const baseA = 8;
-        const baseB = 11;
-        const adjustedA = variant === "A" ? baseA + Math.round(hitCount / 6) : baseA;
-        const adjustedB = variant === "B" ? baseB + Math.round(hitCount / 6) : baseB;
-        avgHitsA.textContent = adjustedA;
-        avgHitsB.textContent = adjustedB;
-        const delta = adjustedB - adjustedA;
-        accDelta.textContent = `${delta >= 0 ? "-" : "+"}${Math.abs(delta)}%`;
-        recommendation.textContent =
-          delta >= 2 ? "Ship B with tuning" : "Keep A for accuracy";
+        if (!supabaseClient) {
+          avgHitsA.textContent = "--";
+          avgHitsB.textContent = "--";
+          accDelta.textContent = "--";
+          recommendation.textContent = "Add Supabase keys for live results";
+          liveNote.textContent = "Supabase not connected";
+        }
+      };
+
+      const fetchAggregates = async () => {
+        if (!supabaseClient) return;
+        const { data, error } = await supabaseClient
+          .from("ab_whack_sessions")
+          .select("variant,hits,misses,accuracy");
+        if (error || !data) return;
+
+        const summarize = (variantLabel) => {
+          const rows = data.filter((row) => row.variant === variantLabel);
+          const sessions = rows.length;
+          const avgHits =
+            sessions === 0
+              ? 0
+              : rows.reduce((sum, row) => sum + row.hits, 0) / sessions;
+          const avgAcc =
+            sessions === 0
+              ? 0
+              : rows.reduce((sum, row) => sum + row.accuracy, 0) / sessions;
+          return { sessions, avgHits, avgAcc };
+        };
+
+        const a = summarize("A");
+        const b = summarize("B");
+
+        avgHitsA.textContent = a.sessions ? a.avgHits.toFixed(1) : "--";
+        avgHitsB.textContent = b.sessions ? b.avgHits.toFixed(1) : "--";
+        sessionsA.textContent = `Sessions: ${a.sessions}`;
+        sessionsB.textContent = `Sessions: ${b.sessions}`;
+
+        if (a.sessions && b.sessions) {
+          const delta = b.avgAcc - a.avgAcc;
+          accDelta.textContent = `${delta >= 0 ? "+" : ""}${(
+            delta * 100
+          ).toFixed(1)}%`;
+          recommendation.textContent =
+            b.avgHits > a.avgHits && b.avgAcc >= a.avgAcc - 0.05
+              ? "Ship B with tuning"
+              : "Keep A for accuracy";
+        } else {
+          accDelta.textContent = "--";
+          recommendation.textContent = "Play to populate";
+        }
+        liveNote.textContent = "Live updates enabled";
+      };
+
+      const recordSession = async () => {
+        if (!supabaseClient) return;
+        const total = hitCount + missCount;
+        const acc = total === 0 ? 0 : hitCount / total;
+        await supabaseClient.from("ab_whack_sessions").insert({
+          variant,
+          hits: hitCount,
+          misses: missCount,
+          accuracy: acc,
+          duration_seconds: 30
+        });
       };
 
       const start = () => {
@@ -302,6 +369,19 @@
       buildGrid();
       startGame.addEventListener("click", start);
       resetGame.addEventListener("click", reset);
+      updateSummary();
+      fetchAggregates();
+
+      if (supabaseClient) {
+        supabaseClient
+          .channel("ab_whack_sessions")
+          .on(
+            "postgres_changes",
+            { event: "INSERT", schema: "public", table: "ab_whack_sessions" },
+            () => fetchAggregates()
+          )
+          .subscribe();
+      }
     </script>
   </body>
 </html>
