@@ -481,6 +481,94 @@ img {
   color: var(--muted);
 }
 
+.venn {
+  position: relative;
+  min-height: 520px;
+  display: grid;
+  place-items: center;
+}
+
+.venn-circle {
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.6);
+  padding: 22px;
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+[data-theme="dark"] .venn-circle {
+  background: rgba(17, 24, 39, 0.6);
+}
+
+.venn-circle h3 {
+  font-size: 1.05rem;
+}
+
+.venn-ai {
+  left: 0;
+  top: 0;
+}
+
+.venn-de {
+  right: 0;
+  top: 0;
+}
+
+.venn-analytics {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.venn-center {
+  position: relative;
+  z-index: 2;
+  width: min(420px, 90%);
+  border-radius: 18px;
+  border: 1px dashed var(--border);
+  background: var(--bg-elevated);
+  padding: 18px;
+  display: grid;
+  gap: 10px;
+  box-shadow: var(--shadow);
+}
+
+.venn-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.venn-list span {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  color: var(--muted);
+  background: var(--bg-elevated);
+}
+
+@media (max-width: 900px) {
+  .venn {
+    min-height: auto;
+    display: grid;
+    gap: 18px;
+  }
+
+  .venn-circle,
+  .venn-center {
+    position: static;
+    width: 100%;
+    height: auto;
+    transform: none;
+  }
+}
+
 .cert-list {
   list-style: none;
   display: grid;
