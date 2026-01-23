@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Swachandrika Rudra | Data Scientist</title>
+    <meta
+      name="description"
+      content="Portfolio of Swachandrika Rudra, data scientist focused on product analytics, ML pipelines, and applied data science."
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="logo" href="#about">Swachandrika Rudra</a>
+        <div class="nav-actions">
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+          <button class="theme-toggle" type="button" aria-label="Toggle theme">
+            Toggle Theme
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="about" class="section hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Data Scientist · Los Angeles, CA</p>
+          <h1>Building reliable data products that make complex decisions simple.</h1>
+          <p class="lede">
+            I am a data scientist with experience in clinical analytics,
+            large-scale data pipelines, and ML research. I enjoy turning noisy,
+            high-volume data into clear narratives and decision-ready tools.
+          </p>
+          <div class="cta-row">
+            <a class="button primary" href="mailto:rikarudra23@gmail.com"
+              >Email Me</a
+            >
+            <a
+              class="button ghost"
+              href="assets/resume.png"
+              target="_blank"
+              rel="noreferrer"
+              >View Resume</a
+            >
+          </div>
+          <div class="meta">
+            <span>Los Angeles, CA 90007</span>
+            <span>(213) 691-7769</span>
+            <a
+              href="https://www.linkedin.com/in/swachandrika-rudra/"
+              target="_blank"
+              rel="noreferrer"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+        <aside class="hero-card">
+          <img
+            src="assets/headshot.jpg"
+            alt="Portrait of Swachandrika Rudra"
+          />
+          <div class="hero-card-body">
+            <h2>Focus Areas</h2>
+            <ul>
+              <li>Product analytics & experimentation</li>
+              <li>ML-driven pipelines & automation</li>
+              <li>Data visualization & storytelling</li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section id="experience" class="section">
+        <div class="section-header">
+          <h2>Experience</h2>
+          <p>Recent roles in product analytics, data engineering, and ML research.</p>
+        </div>
+
+        <article class="entry">
+          <div class="entry-header">
+            <h3>Easley Union Productions, Inc.</h3>
+            <div class="entry-meta">
+              <span>Product Data Scientist</span>
+              <span>Los Angeles, CA · Aug 2025 - Present</span>
+            </div>
+          </div>
+          <ul>
+            <li>
+              Developed a clinical analytics dashboard using Python, SQL, and
+              Plotly/React to ingest, clean, and structure longitudinal
+              veterinary lab data.
+            </li>
+            <li>
+              Implemented time-series analysis and statistical aggregation to
+              track patient trends, enabling EDA, hypothesis testing, and
+              anomaly detection that reduced manual chart review time by
+              30-40%.
+            </li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry-header">
+            <h3>USC Grant Library</h3>
+            <div class="entry-meta">
+              <span>Data Engineer</span>
+              <span>Los Angeles, CA · May 2024 - May 2025</span>
+            </div>
+          </div>
+          <ul>
+            <li>
+              Architected MarcGenie, a Python-based data pipeline leveraging
+              PyMARC for automated processing and transformation of 5,000+
+              MARC21 records post-migration with 95% accuracy.
+            </li>
+            <li>
+              Built real-time data reconciliation with edge-case handling,
+              batch processing, and monitoring dashboards, saving 100+ hours of
+              manual remediation and restoring metadata visibility.
+            </li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry-header">
+            <h3>ACTREC, Tata Memorial Centre</h3>
+            <div class="entry-meta">
+              <span>Data Scientist - Machine Learning Researcher</span>
+              <span>Mumbai, India · Dec 2022 - Jun 2023</span>
+            </div>
+          </div>
+          <ul>
+            <li>
+              Built an ML-driven analytics pipeline for pan-cancer survival
+              analysis across five high-risk cancer types, implementing
+              supervised learning and domain-specific feature engineering.
+            </li>
+            <li>
+              Designed feature engineering and model optimization workflows,
+              achieving 82.9% AUC, surpassing baseline models by 20% and
+              isolating nine novel biomarkers.
+            </li>
+          </ul>
+        </article>
+
+        <article class="entry">
+          <div class="entry-header">
+            <h3>Ernst &amp; Young</h3>
+            <div class="entry-meta">
+              <span>Data Automation Intern</span>
+              <span>Mumbai, India · Dec 2021 - Feb 2022</span>
+            </div>
+          </div>
+          <ul>
+            <li>
+              Prototyped a Python + Selenium automation framework with fuzzy
+              string matching to map randomized tax form fields into structured
+              Excel datasets.
+            </li>
+            <li>
+              Automated end-to-end ingestion and validation, achieving 95%+
+              field-filling accuracy and completing 1,000 entries in under one
+              minute with robust error logging.
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="section-header">
+          <h2>Projects</h2>
+          <p>Selected projects that showcase search, ML, and analytics.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Golgi - A Healthcare Search Engine</h3>
+            <p class="card-meta">Aug 2025</p>
+            <p>
+              Built a LLM-powered healthcare search engine across 50+ trusted
+              sources with query expansion, BM25 re-ranking, and confidence
+              scoring across 1k+ documents.
+            </p>
+            <p>
+              Deployed a Streamlit application with interactive analytics,
+              result summarization, and multi-format export, improving
+              retrieval speed by 40% in test cases.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Generative AI for Small Molecule Discovery</h3>
+            <p class="card-meta">Dec 2024</p>
+            <p>
+              Co-developed a Feedback-GAN pipeline combining an autoencoder
+              latent space with a Wasserstein GAN for de novo drug discovery.
+            </p>
+            <p>
+              Validated outputs with RDKit for drug-likeness and synthetic
+              accessibility, achieving 80% validity, 75% novelty, and average
+              QED = 0.62 on generated molecules.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="section">
+        <div class="section-header">
+          <h2>Technical Skills</h2>
+          <p>Tools and platforms I rely on for production-grade work.</p>
+        </div>
+        <div class="skills-grid">
+          <div>
+            <h3>Languages</h3>
+            <div class="tags">
+              <span>Python</span><span>SQL</span><span>R</span><span>Java</span
+              ><span>JavaScript</span><span>C</span>
+            </div>
+          </div>
+          <div>
+            <h3>AI/ML</h3>
+            <div class="tags">
+              <span>TensorFlow</span><span>PyTorch</span><span>scikit-learn</span
+              ><span>MLflow</span><span>Keras</span><span>OpenCV</span>
+            </div>
+          </div>
+          <div>
+            <h3>Cloud</h3>
+            <div class="tags">
+              <span>AWS</span><span>EC2</span><span>Lambda</span
+              ><span>SageMaker</span><span>GCP</span><span>BigQuery</span
+              ><span>Azure</span><span>Synapse</span><span>ML Studio</span>
+            </div>
+          </div>
+          <div>
+            <h3>DevOps &amp; Tools</h3>
+            <div class="tags">
+              <span>Docker</span><span>Git</span><span>CI/CD</span>
+            </div>
+          </div>
+          <div>
+            <h3>Data Engineering</h3>
+            <div class="tags">
+              <span>Apache Spark</span><span>Databricks</span
+              ><span>Hadoop</span><span>ETL/ELT</span>
+            </div>
+          </div>
+          <div>
+            <h3>Analytics</h3>
+            <div class="tags">
+              <span>Tableau</span><span>Power BI</span><span>Streamlit</span
+              ><span>Plotly</span><span>D3.js</span><span>Jupyter</span
+              ><span>Google Analytics</span><span>Matplotlib</span
+              ><span>Seaborn</span><span>ggplot2</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="education" class="section">
+        <div class="section-header">
+          <h2>Education</h2>
+          <p>Academic background in applied data science and bioinformatics.</p>
+        </div>
+
+        <article class="entry">
+          <div class="entry-header">
+            <h3>University of Southern California</h3>
+            <div class="entry-meta">
+              <span>MS, Applied Data Science</span>
+              <span>Los Angeles, CA · Aug 2023 - May 2025</span>
+            </div>
+          </div>
+          <p class="entry-note">GPA: 3.71 / 4.0</p>
+          <p class="entry-note">
+            Coursework: Big Data, Data Mining, Machine Learning, Deep Learning,
+            Data Visualization &amp; Analytics, Problem Solving
+          </p>
+        </article>
+
+        <article class="entry">
+          <div class="entry-header">
+            <h3>Dr. D.Y. Patil University</h3>
+            <div class="entry-meta">
+              <span>BTech, Biotechnology, Bioinformatics and Data Science</span>
+              <span>Mumbai, India · Jul 2019 - Jul 2023</span>
+            </div>
+          </div>
+          <p class="entry-note">GPA: 3.90 / 4.0</p>
+          <p class="entry-note">
+            First-rank gold medalist and recipient of merit scholarship for all
+            four years.
+          </p>
+        </article>
+      </section>
+
+      <section id="certifications" class="section">
+        <div class="section-header">
+          <h2>Certifications</h2>
+          <p>Professional credentials and scholarship programs.</p>
+        </div>
+        <ul class="cert-list">
+          <li>
+            AWS AI &amp; ML Scholar 2025 - AWS Machine Learning Fundamentals
+            Nanodegree program (Summer 2025 Cohort)
+          </li>
+          <li>Microsoft Certified: Fabric Data Engineer Associate (Mar 2025)</li>
+          <li>
+            AWS AI &amp; ML Scholar 2024 - AI Programming with Python Nanodegree
+            Program (Winter 2024 Cohort)
+          </li>
+        </ul>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div>
+          <h2>Let’s build something impactful</h2>
+          <p>
+            I’m open to data science roles, analytics consulting, and research
+            collaborations. Reach out to discuss opportunities or partnerships.
+          </p>
+        </div>
+        <div class="cta-row">
+          <a class="button primary" href="mailto:rikarudra23@gmail.com"
+            >Email Me</a
+          >
+          <a
+            class="button ghost"
+            href="https://www.linkedin.com/in/swachandrika-rudra/"
+            target="_blank"
+            rel="noreferrer"
+            >Connect on LinkedIn</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Swachandrika Rudra · Built for GitHub Pages</p>
+    </footer>
+  </body>
+</html>
