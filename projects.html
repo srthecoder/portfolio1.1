@@ -173,7 +173,7 @@
         ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
         : null;
 
-      const variant = Math.random() < 0.5 ? "A" : "B";
+      let variant = "A";
       const variantLabel = document.getElementById("variantLabel");
       const variantSpeed = document.getElementById("variantSpeed");
       const variantGrid = document.getElementById("variantGrid");
@@ -207,6 +207,7 @@
       let activeIndex = null;
 
       const buildGrid = () => {
+        cells.length = 0;
         const { grid, size } = config[variant];
         whackBoard.innerHTML = "";
         whackBoard.style.gridTemplateColumns = `repeat(${grid}, ${size}px)`;
@@ -327,6 +328,11 @@
 
       const start = () => {
         if (timer) return;
+        variant = Math.random() < 0.5 ? "A" : "B";
+        variantLabel.textContent = variant;
+        variantSpeed.textContent = `${config[variant].speed}ms`;
+        variantGrid.textContent = `${config[variant].grid}x${config[variant].grid}`;
+        buildGrid();
         remaining = 30;
         hitCount = 0;
         missCount = 0;
@@ -365,7 +371,6 @@
       variantLabel.textContent = variant;
       variantSpeed.textContent = `${config[variant].speed}ms`;
       variantGrid.textContent = `${config[variant].grid}x${config[variant].grid}`;
-
       buildGrid();
       startGame.addEventListener("click", start);
       resetGame.addEventListener("click", reset);
