@@ -184,8 +184,23 @@ img {
 .hero-card ul {
   list-style: none;
   display: grid;
-  gap: 8px;
-  color: var(--muted);
+  gap: 12px;
+  color: var(--text);
+}
+
+.focus-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+}
+
+.focus-list span {
+  font-size: 1.1rem;
+}
+
+.focus-list strong {
+  font-weight: 600;
 }
 
 .section-header {
