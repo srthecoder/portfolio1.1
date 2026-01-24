@@ -181,11 +181,24 @@ img {
   gap: 20px;
 }
 
-.hero-card ul {
+.focus-inline {
+  margin-top: 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.focus-inline h2 {
+  font-size: 1.15rem;
+}
+
+.hero-card ul,
+.focus-inline ul {
   list-style: none;
   display: grid;
   gap: 12px;
   color: var(--text);
+  margin: 0;
+  padding: 0;
 }
 
 .focus-list li {
