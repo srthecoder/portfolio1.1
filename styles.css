@@ -104,7 +104,7 @@ img {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 48px;
-  align-items: center;
+  align-items: start;
 }
 
 .hero-copy h1 {
@@ -209,6 +209,9 @@ img {
   display: grid;
   place-items: center;
   padding: 8px;
+  justify-self: end;
+  align-self: start;
+  margin-top: 8px;
 }
 
 .hero-figure img {
