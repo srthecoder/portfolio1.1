@@ -212,7 +212,7 @@ img {
 }
 
 .hero-figure img {
-  width: min(360px, 80%);
+  width: min(520px, 92%);
   height: auto;
 }
 
