@@ -103,7 +103,7 @@ img {
 .hero {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-  gap: 48px;
+  gap: 56px;
   align-items: start;
 }
 
@@ -208,14 +208,14 @@ img {
 .hero-figure {
   display: grid;
   place-items: center;
-  padding: 8px;
+  padding: 0;
   justify-self: end;
   align-self: start;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 .hero-figure img {
-  width: min(520px, 92%);
+  width: min(480px, 88%);
   height: auto;
 }
 
