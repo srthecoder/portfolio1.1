@@ -107,6 +107,20 @@ img {
   align-items: start;
 }
 
+.hero-copy {
+  grid-column: 1;
+}
+
+.hero-figure {
+  grid-column: 2;
+}
+
+.focus-inline {
+  grid-column: 1 / -1;
+  margin-top: 24px;
+  overflow: hidden;
+}
+
 .hero-copy h1 {
   font-size: clamp(2.4rem, 4vw, 3.4rem);
   line-height: 1.1;
@@ -171,38 +185,54 @@ img {
   font-size: 0.95rem;
 }
 
-.focus-inline {
-  margin-top: 24px;
-  display: grid;
-  gap: 12px;
+.focus-marquee {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    #000 8%,
+    #000 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    #000 8%,
+    #000 92%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
-.focus-inline h2 {
-  font-size: 1.15rem;
-}
-
-.focus-inline ul {
-  list-style: none;
-  display: grid;
-  gap: 8px;
-  color: var(--text);
-  margin: 0;
-  padding: 0;
-}
-
-.focus-list li {
-  display: flex;
+.focus-track {
+  display: inline-flex;
+  gap: 32px;
   align-items: center;
-  gap: 10px;
-  font-size: 0.98rem;
+  white-space: nowrap;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  will-change: transform;
+  transform: translateX(0);
 }
 
-.focus-list span {
-  font-size: 1.1rem;
-}
-
-.focus-list strong {
+.focus-track span {
   font-weight: 600;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.focus-track span::after {
+  content: "|";
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.focus-track span:last-child::after {
+  content: "";
 }
 
 .hero-figure {
