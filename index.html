@@ -148,7 +148,7 @@
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <div class="timeline-header">
-                <h3>Data Engineer · USC Grant Library</h3>
+                <h3>Data Engineer · USC Grand Library</h3>
                 <span class="timeline-date">May 2024 - May 2025</span>
               </div>
               <p class="timeline-summary">
@@ -264,48 +264,128 @@
       </section>
 
       <section id="certifications" class="section">
-        <div class="section-split">
-          <div class="section-title">
-            <h2>Certifications</h2>
-          </div>
-          <div class="section-body">
-            <div class="simple-list">
-              <article class="simple-item hover-expand">
-                <h3>AWS AI &amp; ML Scholar 2025</h3>
-                <p class="card-meta">Summer 2025 Cohort</p>
-                <p class="card-summary">
-                  AWS Machine Learning Fundamentals Nanodegree program.
-                </p>
-                <ul>
-                  <li>Selected for the AWS scholarship cohort.</li>
-                </ul>
-              </article>
-
-              <article class="simple-item hover-expand">
-                <h3>Microsoft Certified: Fabric Data Engineer Associate</h3>
-                <p class="card-meta">Mar 2025</p>
-                <p class="card-summary">
-                  Microsoft Fabric data engineering credential.
-                </p>
-                <ul>
-                  <li>Certified in data ingestion, modeling, and orchestration.</li>
-                </ul>
-              </article>
-
-              <article class="simple-item hover-expand">
-                <h3>AWS AI &amp; ML Scholar 2024</h3>
-                <p class="card-meta">Winter 2024 Cohort</p>
-                <p class="card-summary">
-                  AI Programming with Python Nanodegree Program.
-                </p>
-                <ul>
-                  <li>Python, ML foundations, and deployment basics.</li>
-                </ul>
-              </article>
-            </div>
-          </div>
+        <div class="section-header cert-header">
+          <h2>Certificates &amp; Awards</h2>
         </div>
+        <div class="cert-showcase">
+              <button
+                class="cert-btn pos-1"
+                type="button"
+                data-title="Gold Medalist"
+                data-file="assets/certificates/medal.png"
+              >
+                <img
+                  src="assets/icons/medal.png"
+                  alt="Gold medal award"
+                />
+              </button>
+              <button
+                class="cert-btn pos-2"
+                type="button"
+                data-title="MS Applied Data Science"
+                data-file="assets/certificates/usc-ms.pdf"
+              >
+                <img
+                  src="assets/icons/usc-ms.png"
+                  alt="USC MS Applied Data Science certificate"
+                />
+              </button>
+              <button
+                class="cert-btn pos-3"
+                type="button"
+                data-title="AWS AI & ML Scholar 2025"
+                data-file="assets/certificates/aws-scholar.jpeg"
+              >
+                <img
+                  src="assets/icons/aws-scholar.png"
+                  alt="AWS AI & ML Scholarship Recipient"
+                />
+              </button>
+              <button
+                class="cert-btn pos-4"
+                type="button"
+                data-title="AWS Machine Learning Fundamentals"
+                data-file="assets/certificates/aws-ml-fundamentals.pdf"
+              >
+                <img
+                  src="assets/icons/aws-ml-fundamentals.png"
+                  alt="AWS Machine Learning Fundamentals certificate"
+                />
+              </button>
+              <button
+                class="cert-btn pos-5"
+                type="button"
+                data-title="AWS Certificate of Completion"
+                data-file="assets/certificates/aws-cert-2.pdf"
+              >
+                <img
+                  src="assets/icons/aws-cert-2.png"
+                  alt="AWS Certificate of Completion"
+                />
+              </button>
+              <button
+                class="cert-btn pos-6"
+                type="button"
+                data-title="Microsoft Certified: Fabric Data Engineer Associate"
+                data-file="assets/certificates/microsoft-fabric.pdf"
+              >
+                <img
+                  src="assets/icons/microsoft-fabric.png"
+                  alt="Microsoft Fabric Data Engineer certificate"
+                />
+              </button>
+              <button
+                class="cert-btn pos-7"
+                type="button"
+                data-title="AWS Educate: Introduction to Generative AI"
+                data-file="assets/certificates/aws-genai-badge.png"
+              >
+                <img
+                  src="assets/icons/aws-genai-badge.png"
+                  alt="AWS Educate Introduction to Generative AI badge"
+                />
+              </button>
+              <button
+                class="cert-btn pos-8"
+                type="button"
+                data-title="AWS Certificate of Completion"
+                data-file="assets/certificates/aws-cert-1.pdf"
+              >
+                <img
+                  src="assets/icons/aws-cert-1.png"
+                  alt="AWS Certificate of Completion"
+                />
+              </button>
+        </div>
+        <p class="cert-note">
+          Click a certificate to view the full credential.
+        </p>
       </section>
+
+      <dialog class="cert-modal" id="certModal">
+        <div class="cert-modal-controls">
+          <button class="glass-btn nav-btn" id="certPrev" type="button">
+            ‹
+          </button>
+          <button class="glass-btn nav-btn" id="certNext" type="button">
+            ›
+          </button>
+          <button class="glass-btn close-btn" id="certModalClose" type="button">
+            ✕
+          </button>
+        </div>
+        <div class="cert-modal-body">
+          <img id="certModalImage" alt="" />
+          <iframe
+            id="certModalPdf"
+            title="Certificate PDF"
+            loading="lazy"
+          ></iframe>
+          <p class="cert-modal-empty" id="certModalEmpty">
+            Add your certificate file to the path shown in the button data.
+          </p>
+        </div>
+      </dialog>
 
       <section id="contact" class="section contact">
         <div>
