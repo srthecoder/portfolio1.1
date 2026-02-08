@@ -23,139 +23,150 @@
     </header>
 
     <main>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Home</a>
+        <span aria-hidden="true">/</span>
+        <span>Projects</span>
+      </nav>
       <section class="section project-hero">
         <div>
           <p class="eyebrow">Projects</p>
-          <h1>Interactive data science products</h1>
-          <p class="lede">
-            The Goal: Mastering the 0→1 loop—prototyping, deploying, and optimizing.
-            The Tech: I’m currently geeking out over Python-driven pipelines, real-time analytics, and building robust architectures that don't just store data, but leverage it.
-            The Philosophy: Build, break, learn, repeat. Everything here is open-source and driven by curiosity.
-          </p>
-        </div>
-      </section>
-
-      <section class="section project-feature">
-        <div class="section-header">
-          <h2>Whack-a-Bug: A/B UX Experiment</h2>
-          <p>
-            You are randomly assigned to Variant A or B. Play the game, then see
-            how design choices shift engagement metrics.
-          </p>
-        </div>
-
-        <div class="whack-grid">
-          <div class="whack-card">
-            <h3>Try It</h3>
-            <p class="whack-sub">
-              Click bugs as they pop up. Your session contributes to the live
-              experiment summary.
-            </p>
-            <div class="whack-meta">
-              <span>Variant: <strong id="variantLabel">A</strong></span>
-              <span>Speed: <strong id="variantSpeed">900ms</strong></span>
-              <span>Grid: <strong id="variantGrid">3x3</strong></span>
-            </div>
-            <div class="whack-controls">
-              <button class="button primary" id="startGame" type="button">
-                Start
-              </button>
-              <button class="button ghost" id="resetGame" type="button">
-                Reset
-              </button>
-            </div>
-            <div class="whack-stats">
-              <div>
-                <p>Time</p>
-                <h3 id="timeLeft">30</h3>
-              </div>
-              <div>
-                <p>Hits</p>
-                <h3 id="hits">0</h3>
-              </div>
-              <div>
-                <p>Misses</p>
-                <h3 id="misses">0</h3>
-              </div>
-              <div>
-                <p>Accuracy</p>
-                <h3 id="accuracy">0%</h3>
-              </div>
-            </div>
-          </div>
-
-          <div class="whack-card">
-            <div id="whackBoard" class="whack-board" role="grid"></div>
-            <p class="whack-note" id="gameNote">
-              Hit rate and accuracy help compare UX variants.
-            </p>
-          </div>
-        </div>
-
-        <div class="whack-summary">
-          <div>
-            <h3>Experiment Summary</h3>
-            <p>
-              After you play, this summary updates with your session metrics and
-              highlights which variant feels more engaging.
-            </p>
-          </div>
-          <div class="whack-summary-grid">
-            <div class="summary-card">
-              <p>Variant A Avg Hits</p>
-              <h3 id="avgHitsA">--</h3>
-              <span id="sessionsA">Sessions: 0</span>
-            </div>
-            <div class="summary-card">
-              <p>Variant B Avg Hits</p>
-              <h3 id="avgHitsB">--</h3>
-              <span id="sessionsB">Sessions: 0</span>
-            </div>
-            <div class="summary-card">
-              <p>Accuracy Delta</p>
-              <h3 id="accDelta">--</h3>
-              <span>Higher is better</span>
-            </div>
-            <div class="summary-card">
-              <p>Recommendation</p>
-              <h3 id="recommendation">Play to populate</h3>
-              <span id="liveNote">Live updates on new sessions</span>
-            </div>
-          </div>
+          <h1>Interactive data science projects</h1>
+          <ul class="lede-bullets">
+            <li>
+              <strong>The Goal:</strong> Mastering the 0→1 loop—prototyping,
+              deploying, and optimizing.
+            </li>
+            <li>
+              <strong>The Tech:</strong> I’m currently geeking out over
+              Python-driven pipelines, real-time analytics, & building robust
+              architectures that leverage data efficiently.
+            </li>
+            <li>
+              <strong>The Philosophy:</strong> Build, break, learn, repeat.
+              Everything here is open-source and driven by curiosity.
+            </li>
+          </ul>
         </div>
       </section>
 
       <section class="section">
         <div class="section-header">
-          <h2>Additional Projects</h2>
-          <p>Focused builds spanning NLP, bioinformatics, and data platforms.</p>
+          <h2>Active</h2>
+          <p>Each project generates real user data and a published analysis.</p>
         </div>
-        <div class="simple-list">
-          <article class="simple-item hover-expand">
-            <h3>Golgi - A Healthcare Search Engine</h3>
-            <p class="card-meta">Aug 2025</p>
-            <p class="card-summary">
-              LLM-powered healthcare search across 50+ trusted sources.
+        <div class="project-cards">
+          <a class="project-card" href="whack.html">
+            <div class="project-card-top">
+              <span class="project-pill live">Live</span>
+              <div class="project-metrics">
+                <span>Experiment</span>
+                <span>Behavioral Analytics</span>
+              </div>
+            </div>
+            <h3>Whack-a-Bug: A/B UX Experiment</h3>
+            <p class="project-snippet">
+              A playful A/B test where faster gameplay boosts engagement but can
+              reduce accuracy. Play, contribute data, and see the trade-offs.
             </p>
-            <ul>
-              <li>Query expansion, BM25 re-ranking, and confidence scoring.</li>
-              <li>Streamlit app with analytics, summaries, and export.</li>
-              <li>40% faster retrieval in test cases.</li>
-            </ul>
-          </article>
+            <div class="project-tags">
+              <span>Supabase</span>
+              <span>Realtime</span>
+              <span>Experiment Design</span>
+            </div>
+            <div class="project-cta">
+              <span>Try it →</span>
+            </div>
+          </a>
 
-          <article class="simple-item hover-expand">
-            <h3>Generative AI for Small Molecule Discovery</h3>
-            <p class="card-meta">Dec 2024</p>
-            <p class="card-summary">
-              Feedback-GAN pipeline for de novo drug discovery.
+          <div class="project-card">
+            <div class="project-card-top">
+              <span class="project-pill">Concept</span>
+              <div class="project-metrics">
+                <span>Search</span>
+                <span>NLP</span>
+              </div>
+            </div>
+            <h3>Golgi — Healthcare Search Engine</h3>
+            <p class="project-snippet">
+              LLM-powered medical literature search with query expansion,
+              BM25 re-ranking, and confidence scoring across 1k+ documents.
             </p>
-            <ul>
-              <li>Autoencoder latent space + Wasserstein GAN.</li>
-              <li>Validated with RDKit for drug-likeness.</li>
-              <li>80% validity, 75% novelty, QED = 0.62.</li>
-            </ul>
-          </article>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>Streamlit</span>
+              <span>Information Retrieval</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-top">
+              <span class="project-pill">Concept</span>
+              <div class="project-metrics">
+                <span>GenAI</span>
+                <span>Bioinformatics</span>
+              </div>
+            </div>
+            <h3>Generative AI for Small Molecule Discovery</h3>
+            <p class="project-snippet">
+              Feedback-GAN pipeline for de novo drug discovery with RDKit
+              validation and QED-driven evaluation.
+            </p>
+            <div class="project-tags">
+              <span>PyTorch</span>
+              <span>RDKit</span>
+              <span>Generative Models</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="section">
+        <div class="section-header">
+          <h2>More Work</h2>
+          <p>Additional builds and research experiments.</p>
+        </div>
+        <div class="project-cards">
+          <div class="project-card">
+            <div class="project-card-top">
+              <span class="project-pill">Research</span>
+              <div class="project-metrics">
+                <span>Survival Analysis</span>
+                <span>Biomarkers</span>
+              </div>
+            </div>
+            <h3>Pan-Cancer Survival Pipeline</h3>
+            <p class="project-snippet">
+              Built supervised ML pipelines across five cancer types, isolating
+              nine novel biomarkers and improving AUC by 20%.
+            </p>
+            <div class="project-tags">
+              <span>scikit-learn</span>
+              <span>Feature Engineering</span>
+              <span>HPO</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-card-top">
+              <span class="project-pill">Automation</span>
+              <div class="project-metrics">
+                <span>QA</span>
+                <span>Workflow</span>
+              </div>
+            </div>
+            <h3>Tax Form Automation</h3>
+            <p class="project-snippet">
+              Python + Selenium automation with fuzzy matching to map randomized
+              tax forms into structured datasets in under a minute.
+            </p>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>Selenium</span>
+              <span>Data Quality</span>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -164,230 +175,5 @@
       <p>© 2026 Swachandrika Rudra · Built for GitHub Pages</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-      const SUPABASE_URL = "https://bdajmvfjltcbegdmktnu.supabase.co";
-      const SUPABASE_ANON_KEY = "sb_publishable_YRNDvYxYNXwClAiB199GUw_XuCh-3iw";
-      const supabaseReady =
-        SUPABASE_URL && SUPABASE_ANON_KEY && window.supabase;
-      const supabaseClient = supabaseReady
-        ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-        : null;
-
-      let variant = "A";
-      const variantLabel = document.getElementById("variantLabel");
-      const variantSpeed = document.getElementById("variantSpeed");
-      const variantGrid = document.getElementById("variantGrid");
-      const startGame = document.getElementById("startGame");
-      const resetGame = document.getElementById("resetGame");
-      const whackBoard = document.getElementById("whackBoard");
-      const timeLeft = document.getElementById("timeLeft");
-      const hits = document.getElementById("hits");
-      const misses = document.getElementById("misses");
-      const accuracy = document.getElementById("accuracy");
-      const gameNote = document.getElementById("gameNote");
-      const avgHitsA = document.getElementById("avgHitsA");
-      const avgHitsB = document.getElementById("avgHitsB");
-      const accDelta = document.getElementById("accDelta");
-      const recommendation = document.getElementById("recommendation");
-      const sessionsA = document.getElementById("sessionsA");
-      const sessionsB = document.getElementById("sessionsB");
-      const liveNote = document.getElementById("liveNote");
-
-      const config = {
-        A: { grid: 3, speed: 900, size: 72 },
-        B: { grid: 4, speed: 650, size: 60 }
-      };
-
-      const cells = [];
-      let timer = null;
-      let spawn = null;
-      let remaining = 30;
-      let hitCount = 0;
-      let missCount = 0;
-      let activeIndex = null;
-
-      const buildGrid = () => {
-        cells.length = 0;
-        const { grid, size } = config[variant];
-        whackBoard.innerHTML = "";
-        whackBoard.style.gridTemplateColumns = `repeat(${grid}, ${size}px)`;
-        for (let i = 0; i < grid * grid; i += 1) {
-          const cell = document.createElement("button");
-          cell.type = "button";
-          cell.className = "whack-cell";
-          cell.setAttribute("aria-label", "whack cell");
-          cell.addEventListener("click", () => handleClick(i));
-          whackBoard.appendChild(cell);
-          cells.push(cell);
-        }
-      };
-
-      const setActive = (index) => {
-        if (activeIndex !== null) {
-          cells[activeIndex].classList.remove("is-active");
-        }
-        activeIndex = index;
-        cells[index].classList.add("is-active");
-      };
-
-      const handleClick = (index) => {
-        if (!timer) return;
-        if (index === activeIndex) {
-          hitCount += 1;
-        } else {
-          missCount += 1;
-        }
-        updateStats();
-      };
-
-      const updateStats = () => {
-        hits.textContent = hitCount;
-        misses.textContent = missCount;
-        const total = hitCount + missCount;
-        const acc = total === 0 ? 0 : (hitCount / total) * 100;
-        accuracy.textContent = `${acc.toFixed(0)}%`;
-      };
-
-      const stopGame = () => {
-        clearInterval(timer);
-        clearInterval(spawn);
-        timer = null;
-        spawn = null;
-        gameNote.textContent =
-          "Session complete. Compare your results with the experiment summary.";
-        recordSession().finally(fetchAggregates);
-      };
-
-      const updateSummary = () => {
-        if (!supabaseClient) {
-          avgHitsA.textContent = "--";
-          avgHitsB.textContent = "--";
-          accDelta.textContent = "--";
-          recommendation.textContent = "Add Supabase keys for live results";
-          liveNote.textContent = "Supabase not connected";
-        }
-      };
-
-      const fetchAggregates = async () => {
-        if (!supabaseClient) return;
-        const { data, error } = await supabaseClient
-          .from("ab_whack_sessions")
-          .select("variant,hits,misses,accuracy");
-        if (error || !data) return;
-
-        const summarize = (variantLabel) => {
-          const rows = data.filter((row) => row.variant === variantLabel);
-          const sessions = rows.length;
-          const avgHits =
-            sessions === 0
-              ? 0
-              : rows.reduce((sum, row) => sum + row.hits, 0) / sessions;
-          const avgAcc =
-            sessions === 0
-              ? 0
-              : rows.reduce((sum, row) => sum + row.accuracy, 0) / sessions;
-          return { sessions, avgHits, avgAcc };
-        };
-
-        const a = summarize("A");
-        const b = summarize("B");
-
-        avgHitsA.textContent = a.sessions ? a.avgHits.toFixed(1) : "--";
-        avgHitsB.textContent = b.sessions ? b.avgHits.toFixed(1) : "--";
-        sessionsA.textContent = `Sessions: ${a.sessions}`;
-        sessionsB.textContent = `Sessions: ${b.sessions}`;
-
-        if (a.sessions && b.sessions) {
-          const delta = b.avgAcc - a.avgAcc;
-          accDelta.textContent = `${delta >= 0 ? "+" : ""}${(
-            delta * 100
-          ).toFixed(1)}%`;
-          recommendation.textContent =
-            b.avgHits > a.avgHits && b.avgAcc >= a.avgAcc - 0.05
-              ? "Ship B with tuning"
-              : "Keep A for accuracy";
-        } else {
-          accDelta.textContent = "--";
-          recommendation.textContent = "Play to populate";
-        }
-        liveNote.textContent = "Live updates enabled";
-      };
-
-      const recordSession = async () => {
-        if (!supabaseClient) return;
-        const total = hitCount + missCount;
-        const acc = total === 0 ? 0 : hitCount / total;
-        await supabaseClient.from("ab_whack_sessions").insert({
-          variant,
-          hits: hitCount,
-          misses: missCount,
-          accuracy: acc,
-          duration_seconds: 30
-        });
-      };
-
-      const start = () => {
-        if (timer) return;
-        variant = Math.random() < 0.5 ? "A" : "B";
-        variantLabel.textContent = variant;
-        variantSpeed.textContent = `${config[variant].speed}ms`;
-        variantGrid.textContent = `${config[variant].grid}x${config[variant].grid}`;
-        buildGrid();
-        remaining = 30;
-        hitCount = 0;
-        missCount = 0;
-        updateStats();
-        timeLeft.textContent = remaining;
-        timer = setInterval(() => {
-          remaining -= 1;
-          timeLeft.textContent = remaining;
-          if (remaining <= 0) {
-            stopGame();
-          }
-        }, 1000);
-        spawn = setInterval(() => {
-          const next = Math.floor(Math.random() * cells.length);
-          setActive(next);
-        }, config[variant].speed);
-      };
-
-      const reset = () => {
-        clearInterval(timer);
-        clearInterval(spawn);
-        timer = null;
-        spawn = null;
-        remaining = 30;
-        hitCount = 0;
-        missCount = 0;
-        updateStats();
-        timeLeft.textContent = remaining;
-        if (activeIndex !== null) {
-          cells[activeIndex].classList.remove("is-active");
-          activeIndex = null;
-        }
-        gameNote.textContent = "Hit rate and accuracy help compare UX variants.";
-      };
-
-      variantLabel.textContent = variant;
-      variantSpeed.textContent = `${config[variant].speed}ms`;
-      variantGrid.textContent = `${config[variant].grid}x${config[variant].grid}`;
-      buildGrid();
-      startGame.addEventListener("click", start);
-      resetGame.addEventListener("click", reset);
-      updateSummary();
-      fetchAggregates();
-
-      if (supabaseClient) {
-        supabaseClient
-          .channel("ab_whack_sessions")
-          .on(
-            "postgres_changes",
-            { event: "INSERT", schema: "public", table: "ab_whack_sessions" },
-            () => fetchAggregates()
-          )
-          .subscribe();
-      }
-    </script>
   </body>
 </html>
